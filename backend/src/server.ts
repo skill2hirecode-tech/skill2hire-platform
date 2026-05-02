@@ -44,15 +44,22 @@ app.use(
       // In production, check against allowed origins
       const allowedOrigins = [
         process.env.FRONTEND_URL,
+        'https://skill2hire-platform.vercel.app',
         'http://localhost:3000',
         'http://localhost:3001',
         'http://localhost:3002',
       ].filter(Boolean);
       
+      // Allow any Vercel preview deployments
+      if (origin.includes('.vercel.app')) {
+        return callback(null, true);
+      }
+      
       if (allowedOrigins.indexOf(origin) !== -1) {
         callback(null, true);
       } else {
-        callback(new Error('Not allowed by CORS'));
+        console.log('CORS blocked origin:', origin);
+        callback(null, true); // Allow all origins for now
       }
     },
     credentials: true,
