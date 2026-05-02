@@ -1,0 +1,222 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Admin Users
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      UserRole @default(ADMIN)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
+enum UserRole {
+  ADMIN
+  SUPER_ADMIN
+}
+
+
+// Job Postings
+model Job {
+  id               String           @id @default(cuid())
+  title            String
+  slug             String           @unique
+  description      String           @db.Text
+  requirements     String           @db.Text
+  responsibilities String           @db.Text
+  location         String
+  jobType          JobType
+  experienceLevel  ExperienceLevel
+  salaryMin        Int?
+  salaryMax        Int?
+  salaryCurrency   String           @default("INR")
+  department       String?
+  skills           String[]
+  benefits         String[]
+  isActive         Boolean          @default(true)
+  expiresAt        DateTime?
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+  applications     JobApplication[]
+
+  @@index([slug])
+  @@index([isActive])
+  @@index([jobType])
+  @@map("jobs")
+}
+
+enum JobType {
+  FULL_TIME
+  PART_TIME
+  CONTRACT
+  INTERNSHIP
+  FREELANCE
+}
+
+enum ExperienceLevel {
+  ENTRY_LEVEL
+  MID_LEVEL
+  SENIOR_LEVEL
+  LEAD
+  EXECUTIVE
+}
+
+
+// Job Applications
+model JobApplication {
+  id          String   @id @default(cuid())
+  jobId       String
+  job         Job      @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  fullName    String
+  email       String
+  phone       String
+  resumeUrl   String
+  coverLetter String?  @db.Text
+  experience  Int?
+  currentCTC  String?
+  expectedCTC String?
+  noticePeriod String?
+  linkedinUrl String?
+  portfolioUrl String?
+  status      ApplicationStatus @default(PENDING)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([jobId])
+  @@index([email])
+  @@index([status])
+  @@map("job_applications")
+}
+
+enum ApplicationStatus {
+  PENDING
+  REVIEWED
+  SHORTLISTED
+  REJECTED
+  HIRED
+}
+
+
+// Training Courses
+model Course {
+  id          String             @id @default(cuid())
+  title       String
+  slug        String             @unique
+  description String             @db.Text
+  overview    String             @db.Text
+  curriculum  String             @db.Text
+  duration    String
+  level       CourseLevel
+  price       Int
+  currency    String             @default("INR")
+  discountPrice Int?
+  category    String
+  tags        String[]
+  skills      String[]
+  prerequisites String?          @db.Text
+  imageUrl    String?
+  isActive    Boolean            @default(true)
+  startDate   DateTime?
+  endDate     DateTime?
+  maxStudents Int?
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime           @updatedAt
+  enrollments CourseEnrollment[]
+
+  @@index([slug])
+  @@index([isActive])
+  @@index([category])
+  @@map("courses")
+}
+
+enum CourseLevel {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+  EXPERT
+}
+
+
+// Course Enrollments
+model CourseEnrollment {
+  id              String   @id @default(cuid())
+  courseId        String
+  course          Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  fullName        String
+  email           String
+  phone           String
+  education       String?
+  currentStatus   String?
+  message         String?  @db.Text
+  preferredBatch  String?
+  status          EnrollmentStatus @default(PENDING)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([courseId])
+  @@index([email])
+  @@index([status])
+  @@map("course_enrollments")
+}
+
+enum EnrollmentStatus {
+  PENDING
+  CONTACTED
+  ENROLLED
+  REJECTED
+  COMPLETED
+}
+
+
+// Contact/General Leads
+model ContactLead {
+  id        String   @id @default(cuid())
+  fullName  String
+  email     String
+  phone     String
+  subject   String?
+  message   String   @db.Text
+  source    String   @default("CONTACT_FORM")
+  status    LeadStatus @default(NEW)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([email])
+  @@index([status])
+  @@map("contact_leads")
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  QUALIFIED
+  CONVERTED
+  CLOSED
+}
+
+
+// Newsletter Subscriptions
+model Newsletter {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([email])
+  @@map("newsletters")
+}
