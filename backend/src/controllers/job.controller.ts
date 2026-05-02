@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { PrismaClient } from '@prisma/client';
 import { validationResult } from 'express-validator';
 import { uploadResumeToCloudinary } from '../utils/upload.service';
-import { sendJobApplicationEmail, sendWelcomeEmail } from '../utils/email.service';
+import { sendJobApplicationEmail, sendJobApplicationConfirmation, sendWelcomeEmail } from '../utils/email.service';
 
 const prisma = new PrismaClient();
 
@@ -355,15 +355,18 @@ export const applyForJob = async (req: Request, res: Response) => {
     // Send email notifications
     try {
       await Promise.all([
+        // Send notification to admin
         sendJobApplicationEmail({
           jobTitle: job.title,
           applicantName: fullName,
           applicantEmail: email,
           resumeUrl,
         }),
-        sendWelcomeEmail({
-          name: fullName,
-          email,
+        // Send confirmation to applicant
+        sendJobApplicationConfirmation({
+          jobTitle: job.title,
+          applicantName: fullName,
+          applicantEmail: email,
         }),
       ]);
     } catch (emailError) {

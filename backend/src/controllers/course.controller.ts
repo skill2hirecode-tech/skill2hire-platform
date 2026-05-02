@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { PrismaClient } from '@prisma/client';
 import { validationResult } from 'express-validator';
-import { sendCourseEnrollmentEmail, sendWelcomeEmail } from '../utils/email.service';
+import { sendCourseEnrollmentEmail, sendCourseEnrollmentConfirmation, sendWelcomeEmail } from '../utils/email.service';
 
 const prisma = new PrismaClient();
 
@@ -200,13 +200,19 @@ export const enrollInCourse = async (req: Request, res: Response) => {
 
     try {
       await Promise.all([
+        // Send notification to admin
         sendCourseEnrollmentEmail({
           courseTitle: course.title,
           studentName: fullName,
           studentEmail: email,
           studentPhone: phone,
         }),
-        sendWelcomeEmail({ name: fullName, email }),
+        // Send confirmation to student
+        sendCourseEnrollmentConfirmation({
+          courseTitle: course.title,
+          studentName: fullName,
+          studentEmail: email,
+        }),
       ]);
     } catch (emailError) {
       console.error('Email sending failed:', emailError);

@@ -1,5 +1,9 @@
 import nodemailer from 'nodemailer';
 import sgMail from '@sendgrid/mail';
+import { Resend } from 'resend';
+
+// Initialize Resend if API key is available
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 // Initialize SendGrid if API key is available
 if (process.env.SENDGRID_API_KEY) {
@@ -25,10 +29,28 @@ interface EmailOptions {
 }
 
 export const sendEmail = async (options: EmailOptions): Promise<void> => {
-  const from = process.env.FROM_EMAIL || 'noreply@skill2hiretechnologies.com';
+  const from = process.env.FROM_EMAIL || process.env.SMTP_USER || 'onboarding@resend.dev';
 
   try {
-    // Try SendGrid first if available
+    // Try Resend first if available (most reliable)
+    if (resend) {
+      const { data, error } = await resend.emails.send({
+        from: from.includes('@resend.dev') ? from : `Skill2Hire <${from}>`,
+        to: options.to,
+        subject: options.subject,
+        html: options.html,
+      });
+      
+      if (error) {
+        console.error('Resend error:', error);
+        throw error;
+      }
+      
+      console.log(`✅ Email sent to ${options.to} via Resend (ID: ${data?.id})`);
+      return;
+    }
+    
+    // Try SendGrid if available
     if (process.env.SENDGRID_API_KEY) {
       await sgMail.send({
         from,
@@ -37,20 +59,22 @@ export const sendEmail = async (options: EmailOptions): Promise<void> => {
         html: options.html,
         text: options.text,
       });
-      console.log(`Email sent to ${options.to} via SendGrid`);
-    } else {
-      // Fallback to Nodemailer
-      await transporter.sendMail({
-        from,
-        to: options.to,
-        subject: options.subject,
-        html: options.html,
-        text: options.text,
-      });
-      console.log(`Email sent to ${options.to} via SMTP`);
+      console.log(`✅ Email sent to ${options.to} via SendGrid`);
+      return;
     }
+    
+    // Fallback to Nodemailer SMTP
+    await transporter.sendMail({
+      from,
+      to: options.to,
+      subject: options.subject,
+      html: options.html,
+      text: options.text,
+    });
+    console.log(`✅ Email sent to ${options.to} via SMTP`);
+    
   } catch (error) {
-    console.error('Email sending failed:', error);
+    console.error('❌ Email sending failed:', error);
     throw new Error('Failed to send email');
   }
 };
@@ -271,5 +295,189 @@ export const sendWelcomeEmail = async (data: {
     subject: 'Welcome to Skill2Hire Technologies!',
     html,
     text: `Welcome to Skill2Hire Technologies, ${data.name}! We'll be in touch soon.`,
+  });
+};
+
+export const sendJobApplicationConfirmation = async (data: {
+  jobTitle: string;
+  applicantName: string;
+  applicantEmail: string;
+}) => {
+  const html = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, #1E6DCC 0%, #28A745 100%); color: white; padding: 30px; text-align: center; }
+        .content { background: #f9f9f9; padding: 30px; }
+        .footer { background: #0D2B45; color: white; padding: 20px; text-align: center; }
+        .success-badge { background: #28A745; color: white; padding: 10px 20px; border-radius: 25px; display: inline-block; margin: 15px 0; }
+        .info-box { background: white; padding: 20px; margin: 15px 0; border-left: 4px solid #1E6DCC; }
+        .button { display: inline-block; padding: 12px 24px; background: #1E6DCC; color: white; text-decoration: none; border-radius: 5px; margin: 15px 0; }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="header">
+          <h1>✅ Application Received!</h1>
+        </div>
+        <div class="content">
+          <div class="success-badge">🎉 Successfully Submitted</div>
+          <h2>Hello ${data.applicantName},</h2>
+          <p>Thank you for applying to <strong>${data.jobTitle}</strong> at Skill2Hire Technologies!</p>
+          
+          <div class="info-box">
+            <h3>📋 What Happens Next?</h3>
+            <ol>
+              <li><strong>Application Review:</strong> Our HR team will carefully review your application and resume.</li>
+              <li><strong>Initial Screening:</strong> Shortlisted candidates will be contacted within 3-5 business days.</li>
+              <li><strong>Interview Process:</strong> If selected, we'll schedule interviews and assessments.</li>
+              <li><strong>Final Decision:</strong> We'll keep you updated throughout the process.</li>
+            </ol>
+          </div>
+
+          <div class="info-box">
+            <h3>💡 In the Meantime</h3>
+            <ul>
+              <li>Keep your phone and email accessible</li>
+              <li>Check your spam folder for our emails</li>
+              <li>Explore other opportunities on our website</li>
+              <li>Connect with us on LinkedIn</li>
+            </ul>
+          </div>
+
+          <p><strong>Application Details:</strong></p>
+          <ul>
+            <li><strong>Position:</strong> ${data.jobTitle}</li>
+            <li><strong>Submitted:</strong> ${new Date().toLocaleDateString('en-IN', { 
+              year: 'numeric', 
+              month: 'long', 
+              day: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit'
+            })}</li>
+            <li><strong>Status:</strong> Under Review</li>
+          </ul>
+
+          <p style="margin-top: 25px;">We appreciate your interest in joining our team. If you have any questions, feel free to reach out!</p>
+          
+          <a href="${process.env.FRONTEND_URL}/jobs" class="button">View More Jobs</a>
+        </div>
+        <div class="footer">
+          <p><strong>Skill2Hire Technologies</strong></p>
+          <p>Connecting Talent with Opportunity</p>
+          <p>📧 skill2hirecode@gmail.com | 📱 +91 82203 33917</p>
+          <p style="margin-top: 10px; font-size: 11px;">This is an automated confirmation email. Please do not reply to this email.</p>
+        </div>
+      </div>
+    </body>
+    </html>
+  `;
+
+  await sendEmail({
+    to: data.applicantEmail,
+    subject: `Application Received: ${data.jobTitle} - Skill2Hire Technologies`,
+    html,
+    text: `Dear ${data.applicantName}, Thank you for applying to ${data.jobTitle} at Skill2Hire Technologies. We have received your application and will review it shortly. We'll contact you within 3-5 business days if you're shortlisted. Best regards, Skill2Hire Technologies Team`,
+  });
+};
+
+export const sendCourseEnrollmentConfirmation = async (data: {
+  courseTitle: string;
+  studentName: string;
+  studentEmail: string;
+}) => {
+  const html = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, #1E6DCC 0%, #28A745 100%); color: white; padding: 30px; text-align: center; }
+        .content { background: #f9f9f9; padding: 30px; }
+        .footer { background: #0D2B45; color: white; padding: 20px; text-align: center; }
+        .success-badge { background: #28A745; color: white; padding: 10px 20px; border-radius: 25px; display: inline-block; margin: 15px 0; }
+        .info-box { background: white; padding: 20px; margin: 15px 0; border-left: 4px solid #28A745; }
+        .button { display: inline-block; padding: 12px 24px; background: #1E6DCC; color: white; text-decoration: none; border-radius: 5px; margin: 15px 0; }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="header">
+          <h1>🎓 Enrollment Confirmed!</h1>
+        </div>
+        <div class="content">
+          <div class="success-badge">✅ Successfully Enrolled</div>
+          <h2>Hello ${data.studentName},</h2>
+          <p>Congratulations! You have successfully enrolled in <strong>${data.courseTitle}</strong> at Skill2Hire Technologies!</p>
+          
+          <div class="info-box">
+            <h3>📚 What's Next?</h3>
+            <ol>
+              <li><strong>Enrollment Confirmation:</strong> Our team will review your enrollment details.</li>
+              <li><strong>Course Details:</strong> You'll receive course materials and schedule within 2-3 business days.</li>
+              <li><strong>Payment Information:</strong> We'll send you payment details and options shortly.</li>
+              <li><strong>Batch Assignment:</strong> You'll be assigned to your preferred batch or the next available one.</li>
+              <li><strong>Welcome Session:</strong> Details about orientation and first class will be shared soon.</li>
+            </ol>
+          </div>
+
+          <div class="info-box">
+            <h3>💡 Prepare for Success</h3>
+            <ul>
+              <li>Keep your email and phone accessible for updates</li>
+              <li>Check your spam folder for our communications</li>
+              <li>Join our WhatsApp group (link will be shared)</li>
+              <li>Prepare any prerequisites mentioned in course description</li>
+              <li>Set up your learning environment (laptop, internet, etc.)</li>
+            </ul>
+          </div>
+
+          <p><strong>Enrollment Details:</strong></p>
+          <ul>
+            <li><strong>Course:</strong> ${data.courseTitle}</li>
+            <li><strong>Enrolled On:</strong> ${new Date().toLocaleDateString('en-IN', { 
+              year: 'numeric', 
+              month: 'long', 
+              day: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit'
+            })}</li>
+            <li><strong>Status:</strong> Confirmed - Pending Batch Assignment</li>
+          </ul>
+
+          <div class="info-box">
+            <h3>📞 Need Help?</h3>
+            <p>If you have any questions about the course, schedule, or payment:</p>
+            <ul>
+              <li>📧 Email: skill2hirecode@gmail.com</li>
+              <li>📱 WhatsApp: +91 82203 33917</li>
+              <li>🌐 Visit our website for FAQs</li>
+            </ul>
+          </div>
+
+          <p style="margin-top: 25px;">We're excited to have you join us on this learning journey. Get ready to upskill and advance your career!</p>
+          
+          <a href="${process.env.FRONTEND_URL}/courses" class="button">Explore More Courses</a>
+        </div>
+        <div class="footer">
+          <p><strong>Skill2Hire Technologies</strong></p>
+          <p>Connecting Talent with Opportunity</p>
+          <p>📧 skill2hirecode@gmail.com | 📱 +91 82203 33917</p>
+          <p style="margin-top: 10px; font-size: 11px;">This is an automated confirmation email. Please do not reply to this email.</p>
+        </div>
+      </div>
+    </body>
+    </html>
+  `;
+
+  await sendEmail({
+    to: data.studentEmail,
+    subject: `Enrollment Confirmed: ${data.courseTitle} - Skill2Hire Technologies`,
+    html,
+    text: `Dear ${data.studentName}, Congratulations! You have successfully enrolled in ${data.courseTitle} at Skill2Hire Technologies. Our team will contact you within 2-3 business days with course details, schedule, and payment information. We're excited to have you join us! Best regards, Skill2Hire Technologies Team`,
   });
 };
