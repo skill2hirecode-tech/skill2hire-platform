@@ -316,13 +316,20 @@ export default function CoursesPage() {
                 Ready to Start Your Learning Journey?
               </h2>
               <p className="text-xl mb-8 text-white/90">
-                Join thousands of successful students who transformed their careers with Skill2Hire
+                Join thousands of successful students who transformed their
+                careers with Skill2Hire
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="/contact" className="btn bg-white text-primary hover:bg-gray-100 px-8 py-4 text-lg">
+                <a
+                  href="/contact"
+                  className="btn bg-white text-primary hover:bg-gray-100 px-8 py-4 text-lg"
+                >
                   Get Free Counseling
                 </a>
-                <a href="tel:+918220333917" className="btn bg-secondary hover:bg-secondary-600 text-white px-8 py-4 text-lg">
+                <a
+                  href="tel:+91 7349783555"
+                  className="btn bg-secondary hover:bg-secondary-600 text-white px-8 py-4 text-lg"
+                >
                   Call Us Now
                 </a>
               </div>
