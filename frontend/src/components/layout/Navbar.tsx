@@ -45,9 +45,6 @@ export default function Navbar() {
                 <span>{link.label}</span>
               </Link>
             ))}
-            <Link href="/admin" className="btn btn-primary">
-              Admin Login
-            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -73,13 +70,6 @@ export default function Navbar() {
                 <span>{link.label}</span>
               </Link>
             ))}
-            <Link
-              href="/admin"
-              onClick={() => setIsOpen(false)}
-              className="block mt-4 btn btn-primary w-full text-center"
-            >
-              Admin Login
-            </Link>
           </div>
         )}
       </div>
