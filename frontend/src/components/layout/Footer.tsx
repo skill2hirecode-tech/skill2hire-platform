@@ -67,11 +67,15 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start space-x-2 text-gray-300">
                 <MapPin size={18} className="mt-1 flex-shrink-0" />
-                <span className="text-sm">#123, Koramangala, Bangalore<br />Karnataka - 560034, India</span>
+                <span className="text-sm">
+                  #123, Koramangala, Bangalore
+                  <br />
+                  Karnataka - 560034, India
+                </span>
               </li>
               <li className="flex items-center space-x-2 text-gray-300">
                 <Phone size={18} className="flex-shrink-0" />
-                <span className="text-sm">+91 82203 33917</span>
+                <span className="text-sm">+91 7349783555 </span>
               </li>
               <li className="flex items-center space-x-2 text-gray-300">
                 <Mail size={18} className="flex-shrink-0" />

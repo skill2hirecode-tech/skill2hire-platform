@@ -476,11 +476,17 @@ export default function CourseDetailPage() {
                     </form>
 
                     <div className="mt-6 pt-6 border-t space-y-3">
-                      <a href="tel:+918220333917" className="flex items-center text-gray-600 hover:text-primary transition-colors">
+                      <a
+                        href="tel:+91 7349783555"
+                        className="flex items-center text-gray-600 hover:text-primary transition-colors"
+                      >
                         <Phone size={18} className="mr-2" />
-                        <span>+91 82203 33917</span>
+                        <span>+91 7349783555</span>
                       </a>
-                      <a href="mailto:info@skill2hiretechnologies.com" className="flex items-center text-gray-600 hover:text-primary transition-colors">
+                      <a
+                        href="mailto:info@skill2hiretechnologies.com"
+                        className="flex items-center text-gray-600 hover:text-primary transition-colors"
+                      >
                         <Mail size={18} className="mr-2" />
                         <span>info@skill2hiretechnologies.com</span>
                       </a>

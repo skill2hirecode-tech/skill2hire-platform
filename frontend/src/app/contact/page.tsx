@@ -221,10 +221,23 @@ export default function ContactPage() {
                         <Phone className="text-secondary" size={24} />
                       </div>
                       <div>
-                        <h4 className="font-bold text-navy mb-1">Phone Numbers</h4>
+                        <h4 className="font-bold text-navy mb-1">
+                          Phone Numbers
+                        </h4>
                         <p className="text-gray-600">
-                          <a href="tel:+918220333917" className="hover:text-primary">+91 82203 33917</a><br />
-                          <a href="tel:+918220333917" className="hover:text-primary">+91 82203 33917</a>
+                          <a
+                            href="tel:+91 7349783555"
+                            className="hover:text-primary"
+                          >
+                            +91 7349783555
+                          </a>
+                          <br />
+                          <a
+                            href="tel:+91 8792516505"
+                            className="hover:text-primary"
+                          >
+                            +91 8792516505
+                          </a>
                         </p>
                       </div>
                     </div>
