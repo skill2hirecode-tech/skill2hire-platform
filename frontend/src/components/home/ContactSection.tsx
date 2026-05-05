@@ -1,20 +1,22 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
-import toast from 'react-hot-toast';
+import { useState } from "react";
+import { Mail, Phone, MapPin, Send } from "lucide-react";
+import toast from "react-hot-toast";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: '',
+    fullName: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -25,16 +27,16 @@ export default function ContactSection() {
     try {
       // API call will be implemented
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      toast.success('Message sent successfully! We\'ll get back to you soon.');
+      toast.success("Message sent successfully! We'll get back to you soon.");
       setFormData({
-        fullName: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: '',
+        fullName: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
       });
     } catch (error) {
-      toast.error('Failed to send message. Please try again.');
+      toast.error("Failed to send message. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -53,7 +55,9 @@ export default function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div className="card">
-            <h3 className="text-2xl font-bold text-navy mb-6">Send us a Message</h3>
+            <h3 className="text-2xl font-bold text-navy mb-6">
+              Send us a Message
+            </h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label className="label">Full Name *</label>
@@ -121,7 +125,9 @@ export default function ContactSection() {
                 disabled={isSubmitting}
                 className="btn btn-primary w-full"
               >
-                {isSubmitting ? 'Sending...' : (
+                {isSubmitting ? (
+                  "Sending..."
+                ) : (
                   <>
                     <Send className="mr-2" size={18} />
                     Send Message
@@ -134,7 +140,9 @@ export default function ContactSection() {
           {/* Contact Info */}
           <div className="space-y-8">
             <div className="card">
-              <h3 className="text-2xl font-bold text-navy mb-6">Contact Information</h3>
+              <h3 className="text-2xl font-bold text-navy mb-6">
+                Contact Information
+              </h3>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -145,8 +153,9 @@ export default function ContactSection() {
                     <p className="text-gray-600">
                       14th Main cross, 13/A, <br />
                       6th Cross RD, Sector 5, HSR Layout, <br />
-                      Bengaluru, Karnataka- 560102, <br />
-                      India - 560034 <br />
+                      Bengaluru, Karnataka-560102, <br />
+                      India
+                      <br />
                     </p>
                   </div>
                 </div>
@@ -166,8 +175,12 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <h4 className="font-bold text-navy mb-1">Email</h4>
-                    <p className="text-gray-600">info@skill2hiretechnologies.com</p>
-                    <p className="text-gray-600">hr@skill2hiretechnologies.com</p>
+                    <p className="text-gray-600">
+                      info@skill2hiretechnologies.com
+                    </p>
+                    <p className="text-gray-600">
+                      hr@skill2hiretechnologies.com
+                    </p>
                   </div>
                 </div>
               </div>

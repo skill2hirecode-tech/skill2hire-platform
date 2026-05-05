@@ -1,23 +1,25 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
-import WhatsAppButton from '@/components/shared/WhatsAppButton';
-import { Mail, Phone, MapPin, Send, Clock, MessageCircle } from 'lucide-react';
-import toast from 'react-hot-toast';
+import { useState } from "react";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import WhatsAppButton from "@/components/shared/WhatsAppButton";
+import { Mail, Phone, MapPin, Send, Clock, MessageCircle } from "lucide-react";
+import toast from "react-hot-toast";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: '',
+    fullName: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -28,16 +30,16 @@ export default function ContactPage() {
     try {
       // API call will be implemented
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      toast.success('Message sent successfully! We\'ll get back to you soon.');
+      toast.success("Message sent successfully! We'll get back to you soon.");
       setFormData({
-        fullName: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: '',
+        fullName: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
       });
     } catch (error) {
-      toast.error('Failed to send message. Please try again.');
+      toast.error("Failed to send message. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -55,7 +57,8 @@ export default function ContactPage() {
                 Get In Touch
               </h1>
               <p className="text-xl text-gray-200">
-                Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+                Have questions? We'd love to hear from you. Send us a message
+                and we'll respond as soon as possible.
               </p>
             </div>
           </div>
@@ -93,12 +96,20 @@ export default function ContactPage() {
                   <Mail className="text-secondary" size={32} />
                 </div>
                 <h3 className="text-xl font-bold text-navy mb-2">Email Us</h3>
-                <p className="text-gray-600 mb-3">We'll respond within 24 hours</p>
-                <a href="mailto:info@skill2hiretechnologies.com" className="text-secondary hover:text-secondary-600 font-medium">
+                <p className="text-gray-600 mb-3">
+                  We'll respond within 24 hours
+                </p>
+                <a
+                  href="mailto:info@skill2hiretechnologies.com"
+                  className="text-secondary hover:text-secondary-600 font-medium"
+                >
                   info@skill2hiretechnologies.com
                 </a>
                 <br />
-                <a href="mailto:hr@skill2hiretechnologies.com" className="text-secondary hover:text-secondary-600 font-medium">
+                <a
+                  href="mailto:hr@skill2hiretechnologies.com"
+                  className="text-secondary hover:text-secondary-600 font-medium"
+                >
                   hr@skill2hiretechnologies.com
                 </a>
               </div>
@@ -115,7 +126,7 @@ export default function ContactPage() {
                 <p className="text-gray-700 font-medium">
                   14th Main cross, 13/A, <br />
                   6th Cross Rd, Sector 5, <br />
-                  HSR Layout, Bengaluru, Karnataka, 560102 <br />
+                  HSR Layout, Bengaluru, Karnataka-560102, India <br />
                 </p>
               </div>
             </div>
@@ -128,7 +139,9 @@ export default function ContactPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {/* Contact Form */}
               <div className="card">
-                <h2 className="text-3xl font-bold text-navy mb-6">Send us a Message</h2>
+                <h2 className="text-3xl font-bold text-navy mb-6">
+                  Send us a Message
+                </h2>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
                     <label className="label">Full Name *</label>
@@ -196,7 +209,9 @@ export default function ContactPage() {
                     disabled={isSubmitting}
                     className="btn btn-primary w-full"
                   >
-                    {isSubmitting ? 'Sending...' : (
+                    {isSubmitting ? (
+                      "Sending..."
+                    ) : (
                       <>
                         <Send className="mr-2" size={18} />
                         Send Message
@@ -210,7 +225,9 @@ export default function ContactPage() {
               <div className="space-y-8">
                 {/* Contact Details */}
                 <div className="card">
-                  <h3 className="text-2xl font-bold text-navy mb-6">Contact Information</h3>
+                  <h3 className="text-2xl font-bold text-navy mb-6">
+                    Contact Information
+                  </h3>
                   <div className="space-y-6">
                     <div className="flex items-start space-x-4">
                       <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -223,7 +240,7 @@ export default function ContactPage() {
                         <p className="text-gray-600">
                           14th Main cross, 13/A, 6th Cross Rd, <br />
                           Sector 5, HSR Layout, Bengaluru, <br />
-                          Karnataka - 560102, India <br />
+                          Karnataka-560102, India <br />
                         </p>
                       </div>
                     </div>
@@ -309,10 +326,11 @@ export default function ContactPage() {
                     <h3 className="text-2xl font-bold">Quick Contact</h3>
                   </div>
                   <p className="mb-4">
-                    Need immediate assistance? Contact us directly via WhatsApp or call us now!
+                    Need immediate assistance? Contact us directly via WhatsApp
+                    or call us now!
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3">
-                    <a 
+                    <a
                       href="https://wa.me/918220333917?text=Hello%20Skill2Hire%20Technologies"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -321,7 +339,7 @@ export default function ContactPage() {
                       <MessageCircle size={18} className="mr-2" />
                       WhatsApp
                     </a>
-                    <a 
+                    <a
                       href="tel:+918220333917"
                       className="btn bg-white text-secondary hover:bg-gray-100 flex items-center justify-center"
                     >
@@ -346,7 +364,7 @@ export default function ContactPage() {
             </div>
             <div className="rounded-lg overflow-hidden shadow-lg">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.6279446749845!2d77.61214431482178!3d12.935025990881094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae144ed898fc47%3A0x1681f38e8c7a79!2sKoramangala%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1234567890"
+                src="https://www.google.com/maps?q=6th+Cross+Road+HSR+Layout+Bengaluru&output=embed"
                 width="100%"
                 height="450"
                 style={{ border: 0 }}
@@ -370,27 +388,42 @@ export default function ContactPage() {
             </div>
             <div className="max-w-3xl mx-auto space-y-4">
               <div className="card">
-                <h3 className="text-lg font-bold text-navy mb-2">What are your office timings?</h3>
+                <h3 className="text-lg font-bold text-navy mb-2">
+                  What are your office timings?
+                </h3>
                 <p className="text-gray-600">
-                  We are open Monday to Friday from 9:00 AM to 6:00 PM, and Saturday from 10:00 AM to 4:00 PM. We are closed on Sundays.
+                  We are open Monday to Friday from 9:00 AM to 6:00 PM, and
+                  Saturday from 10:00 AM to 4:00 PM. We are closed on Sundays.
                 </p>
               </div>
               <div className="card">
-                <h3 className="text-lg font-bold text-navy mb-2">How can I enroll in a course?</h3>
+                <h3 className="text-lg font-bold text-navy mb-2">
+                  How can I enroll in a course?
+                </h3>
                 <p className="text-gray-600">
-                  You can enroll by visiting our Courses page, selecting your desired course, and filling out the enrollment form. You can also call us or visit our office directly.
+                  You can enroll by visiting our Courses page, selecting your
+                  desired course, and filling out the enrollment form. You can
+                  also call us or visit our office directly.
                 </p>
               </div>
               <div className="card">
-                <h3 className="text-lg font-bold text-navy mb-2">Do you provide placement assistance?</h3>
+                <h3 className="text-lg font-bold text-navy mb-2">
+                  Do you provide placement assistance?
+                </h3>
                 <p className="text-gray-600">
-                  Yes! We provide comprehensive placement assistance to all our students, including resume building, interview preparation, and job referrals to our partner companies.
+                  Yes! We provide comprehensive placement assistance to all our
+                  students, including resume building, interview preparation,
+                  and job referrals to our partner companies.
                 </p>
               </div>
               <div className="card">
-                <h3 className="text-lg font-bold text-navy mb-2">Can I visit your office for a consultation?</h3>
+                <h3 className="text-lg font-bold text-navy mb-2">
+                  Can I visit your office for a consultation?
+                </h3>
                 <p className="text-gray-600">
-                  Absolutely! We welcome walk-in consultations during our business hours. However, we recommend calling ahead to schedule an appointment to ensure availability.
+                  Absolutely! We welcome walk-in consultations during our
+                  business hours. However, we recommend calling ahead to
+                  schedule an appointment to ensure availability.
                 </p>
               </div>
             </div>

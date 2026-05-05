@@ -1,5 +1,13 @@
-import Link from 'next/link';
-import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Instagram } from 'lucide-react';
+import Link from "next/link";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
+  Twitter,
+  Facebook,
+  Instagram,
+} from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -20,19 +28,32 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-gray-300 text-sm mb-4">
-              Connecting Talent with Opportunity. Your trusted partner for recruitment and professional training.
+              Connecting Talent with Opportunity. Your trusted partner for
+              recruitment and professional training.
             </p>
             <div className="flex space-x-3">
-              <a href="#" className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+              <a
+                href="#"
+                className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
+              >
                 <Linkedin size={16} />
               </a>
-              <a href="#" className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+              <a
+                href="#"
+                className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
+              >
                 <Twitter size={16} />
               </a>
-              <a href="#" className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+              <a
+                href="#"
+                className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
+              >
                 <Facebook size={16} />
               </a>
-              <a href="#" className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+              <a
+                href="#"
+                className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
+              >
                 <Instagram size={16} />
               </a>
             </div>
@@ -42,10 +63,38 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><Link href="/jobs" className="text-gray-300 hover:text-secondary transition-colors">Browse Jobs</Link></li>
-              <li><Link href="/courses" className="text-gray-300 hover:text-secondary transition-colors">Our Courses</Link></li>
-              <li><Link href="/about" className="text-gray-300 hover:text-secondary transition-colors">About Us</Link></li>
-              <li><Link href="/contact" className="text-gray-300 hover:text-secondary transition-colors">Contact</Link></li>
+              <li>
+                <Link
+                  href="/jobs"
+                  className="text-gray-300 hover:text-secondary transition-colors"
+                >
+                  Browse Jobs
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/courses"
+                  className="text-gray-300 hover:text-secondary transition-colors"
+                >
+                  Our Courses
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about"
+                  className="text-gray-300 hover:text-secondary transition-colors"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="text-gray-300 hover:text-secondary transition-colors"
+                >
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -70,7 +119,7 @@ export default function Footer() {
                 <span className="text-sm">
                   14th Main cross, 13/A, <br />
                   6th Cross Rd, Sector 5, <br />
-                  HSR Layout, Bengaluru, Karnataka, 560102 <br />
+                  HSR Layout, Bengaluru, Karnataka-560102, India <br />
                 </span>
               </li>
               <li className="flex items-center space-x-2 text-gray-300">
@@ -91,13 +140,22 @@ export default function Footer() {
               © {currentYear} Skill2Hire Technologies. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm">
-              <Link href="/privacy" className="text-gray-400 hover:text-secondary transition-colors">
+              <Link
+                href="/privacy"
+                className="text-gray-400 hover:text-secondary transition-colors"
+              >
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-gray-400 hover:text-secondary transition-colors">
+              <Link
+                href="/terms"
+                className="text-gray-400 hover:text-secondary transition-colors"
+              >
                 Terms of Service
               </Link>
-              <Link href="/cookies" className="text-gray-400 hover:text-secondary transition-colors">
+              <Link
+                href="/cookies"
+                className="text-gray-400 hover:text-secondary transition-colors"
+              >
                 Cookie Policy
               </Link>
             </div>
