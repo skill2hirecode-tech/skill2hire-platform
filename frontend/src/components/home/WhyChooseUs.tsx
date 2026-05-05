@@ -1,36 +1,44 @@
-import { CheckCircle, Award, Users, TrendingUp, Target, Shield } from 'lucide-react';
+import {
+  CheckCircle,
+  Award,
+  Users,
+  TrendingUp,
+  Target,
+  Shield,
+} from "lucide-react";
 
 export default function WhyChooseUs() {
   const features = [
     {
       icon: Award,
-      title: 'Industry Expertise',
-      description: 'Over 10 years of experience in recruitment and training',
+      title: "Industry Expertise",
+      description: "Over 10 years of experience in recruitment and training",
     },
     {
       icon: Users,
-      title: 'Expert Trainers',
-      description: 'Learn from industry professionals with real-world experience',
+      title: "Expert Trainers",
+      description:
+        "Learn from industry professionals with real-world experience",
     },
     {
       icon: TrendingUp,
-      title: 'Career Growth',
-      description: '95% of our students get placed within 6 months',
+      title: "Career Growth",
+      description: "95% of our students get placed within 6 months",
     },
     {
       icon: Target,
-      title: 'Personalized Approach',
-      description: 'Tailored solutions to meet your unique career goals',
+      title: "Personalized Approach",
+      description: "Tailored solutions to meet your unique career goals",
     },
     {
       icon: CheckCircle,
-      title: 'Quality Assurance',
-      description: 'Rigorous quality standards for all our services',
+      title: "Quality Assurance",
+      description: "Rigorous quality standards for all our services",
     },
     {
       icon: Shield,
-      title: 'Trusted Partner',
-      description: 'Partnered with 100+ leading companies across India',
+      title: "Trusted Partner",
+      description: "Partnered with 15+ leading companies across India",
     },
   ];
 
@@ -54,7 +62,9 @@ export default function WhyChooseUs() {
                 <feature.icon className="text-white" size={24} />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-navy mb-2">{feature.title}</h3>
+                <h3 className="text-lg font-bold text-navy mb-2">
+                  {feature.title}
+                </h3>
                 <p className="text-gray-600">{feature.description}</p>
               </div>
             </div>
@@ -67,21 +77,24 @@ export default function WhyChooseUs() {
             <Target size={48} className="mx-auto mb-4" />
             <h3 className="text-2xl font-bold mb-3">Our Mission</h3>
             <p className="text-white/90">
-              To empower individuals with industry-relevant skills and connect them with the right opportunities
+              To empower individuals with industry-relevant skills and connect
+              them with the right opportunities
             </p>
           </div>
           <div className="text-center p-8 bg-navy text-white rounded-lg">
             <TrendingUp size={48} className="mx-auto mb-4" />
             <h3 className="text-2xl font-bold mb-3">Our Vision</h3>
             <p className="text-white/90">
-              To be a trusted partner in building a skilled workforce and transforming careers and businesses
+              To be a trusted partner in building a skilled workforce and
+              transforming careers and businesses
             </p>
           </div>
           <div className="text-center p-8 bg-secondary text-white rounded-lg">
             <Award size={48} className="mx-auto mb-4" />
             <h3 className="text-2xl font-bold mb-3">Our Values</h3>
             <p className="text-white/90">
-              Integrity, Excellence, Empowerment, and Commitment to quality in everything we do
+              Integrity, Excellence, Empowerment, and Commitment to quality in
+              everything we do
             </p>
           </div>
         </div>

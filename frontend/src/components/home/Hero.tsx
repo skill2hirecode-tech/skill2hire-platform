@@ -40,20 +40,22 @@ export default function Hero() {
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
             <div className="text-center">
-              <div className="text-4xl font-bold text-secondary mb-2">500+</div>
+              <div className="text-4xl font-bold text-secondary mb-2">200+</div>
               <div className="text-gray-300">Jobs Posted</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-secondary mb-2">50+</div>
-              <div className="text-gray-300">Courses</div>
+              <div className="text-4xl font-bold text-secondary mb-2">15+</div>
+              <div className="text-gray-300">Training Programs</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-secondary mb-2">1000+</div>
-              <div className="text-gray-300">Placements</div>
+              <div className="text-4xl font-bold text-secondary mb-2">
+                1000+
+              </div>
+              <div className="text-gray-300">Successful Placements</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-secondary mb-2">100+</div>
-              <div className="text-gray-300">Companies</div>
+              <div className="text-4xl font-bold text-secondary mb-2">15+</div>
+              <div className="text-gray-300">Partner Companies</div>
             </div>
           </div>
         </div>

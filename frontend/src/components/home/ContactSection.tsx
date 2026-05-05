@@ -143,9 +143,10 @@ export default function ContactSection() {
                   <div>
                     <h4 className="font-bold text-navy mb-1">Address</h4>
                     <p className="text-gray-600">
-                      #123, Koramangala<br />
-                      Bangalore, Karnataka<br />
-                      India - 560034
+                      14th Main cross, 13/A, <br />
+                      6th Cross RD, Sector 5, HSR Layout, <br />
+                      Bengaluru, Karnataka- 560102, <br />
+                      India - 560034 <br />
                     </p>
                   </div>
                 </div>

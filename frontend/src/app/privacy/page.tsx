@@ -201,17 +201,38 @@ export default function PrivacyPage() {
               <h2 className="text-2xl font-bold text-navy">11. Contact Us</h2>
             </div>
             <p className="text-gray-700 leading-relaxed mb-4">
-              If you have any questions or concerns about this Privacy Policy or our data practices, please contact us:
+              If you have any questions or concerns about this Privacy Policy or
+              our data practices, please contact us:
             </p>
             <div className="text-gray-700 space-y-2">
-              <p><strong>Skill2Hire Technologies</strong></p>
-              <p>📧 Email: <a href="mailto:privacy@skill2hiretechnologies.com" className="text-primary hover:underline">privacy@skill2hiretechnologies.com</a></p>
-              <p>📧 General: <a href="mailto:skill2hirecode@gmail.com" className="text-primary hover:underline">skill2hirecode@gmail.com</a></p>
+              <p>
+                <strong>Skill2Hire Technologies</strong>
+              </p>
+              <p>
+                📧 Email:{" "}
+                <a
+                  href="mailto:privacy@skill2hiretechnologies.com"
+                  className="text-primary hover:underline"
+                >
+                  info@skill2hiretechnologies.com
+                </a>
+              </p>
+              <p>
+                📧 General:{" "}
+                <a
+                  href="mailto:skill2hirecode@gmail.com"
+                  className="text-primary hover:underline"
+                >
+                  hr@skill2hiretechnologies.com
+                </a>
+              </p>
               <p>📱 Phone: +91 82203 33917</p>
-              <p>📍 Address: #123, Koramangala, Bangalore, Karnataka - 560034, India</p>
+              <p>
+                📍 Address: 14th Main cross, 13/A, 6th Cross Rd, Sector 5, HSR
+                Layout, Bangalore, Karnataka - 560034, India <br />
+              </p>
             </div>
           </section>
-
         </div>
       </div>
     </div>

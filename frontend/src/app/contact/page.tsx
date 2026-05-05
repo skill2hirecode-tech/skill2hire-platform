@@ -72,12 +72,18 @@ export default function ContactPage() {
                 </div>
                 <h3 className="text-xl font-bold text-navy mb-2">Call Us</h3>
                 <p className="text-gray-600 mb-3">Mon-Sat: 9:00 AM - 6:00 PM</p>
-                <a href="tel:+918220333917" className="text-primary hover:text-primary-600 font-medium text-lg">
-                  +91 82203 33917
+                <a
+                  href="tel:+918220333917"
+                  className="text-primary hover:text-primary-600 font-medium text-lg"
+                >
+                  +91 7349783555
                 </a>
                 <br />
-                <a href="tel:+918220333917" className="text-primary hover:text-primary-600 font-medium">
-                  +91 82203 33917
+                <a
+                  href="tel:+918220333917"
+                  className="text-primary hover:text-primary-600 font-medium"
+                >
+                  +91 8792516505
                 </a>
               </div>
 
@@ -103,10 +109,13 @@ export default function ContactPage() {
                   <MapPin className="text-purple-600" size={32} />
                 </div>
                 <h3 className="text-xl font-bold text-navy mb-2">Visit Us</h3>
-                <p className="text-gray-600 mb-3">Come say hello at our office</p>
+                <p className="text-gray-600 mb-3">
+                  Come say hello at our office
+                </p>
                 <p className="text-gray-700 font-medium">
-                  Koramangala, Bangalore<br />
-                  Karnataka - 560034
+                  14th Main cross, 13/A, <br />
+                  6th Cross Rd, Sector 5, <br />
+                  HSR Layout, Bengaluru, Karnataka, 560102 <br />
                 </p>
               </div>
             </div>
@@ -208,11 +217,13 @@ export default function ContactPage() {
                         <MapPin className="text-primary" size={24} />
                       </div>
                       <div>
-                        <h4 className="font-bold text-navy mb-1">Office Address</h4>
+                        <h4 className="font-bold text-navy mb-1">
+                          Office Address
+                        </h4>
                         <p className="text-gray-600">
-                          #123, 4th Floor, Koramangala<br />
-                          6th Block, Bangalore<br />
-                          Karnataka - 560034, India
+                          14th Main cross, 13/A, 6th Cross Rd, <br />
+                          Sector 5, HSR Layout, Bengaluru, <br />
+                          Karnataka - 560102, India <br />
                         </p>
                       </div>
                     </div>
@@ -246,12 +257,21 @@ export default function ContactPage() {
                         <Mail className="text-purple-600" size={24} />
                       </div>
                       <div>
-                        <h4 className="font-bold text-navy mb-1">Email Addresses</h4>
+                        <h4 className="font-bold text-navy mb-1">
+                          Email Addresses
+                        </h4>
                         <p className="text-gray-600">
-                          <a href="mailto:info@skill2hiretechnologies.com" className="hover:text-primary">
+                          <a
+                            href="mailto:info@skill2hiretechnologies.com"
+                            className="hover:text-primary"
+                          >
                             info@skill2hiretechnologies.com
-                          </a><br />
-                          <a href="mailto:hr@skill2hiretechnologies.com" className="hover:text-primary">
+                          </a>
+                          <br />
+                          <a
+                            href="mailto:hr@skill2hiretechnologies.com"
+                            className="hover:text-primary"
+                          >
                             hr@skill2hiretechnologies.com
                           </a>
                         </p>
