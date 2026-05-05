@@ -269,7 +269,7 @@ export default function JobsPage() {
                 <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="text-secondary" size={32} />
                 </div>
-                <h3 className="text-3xl font-bold text-navy mb-2">500+</h3>
+                <h3 className="text-3xl font-bold text-navy mb-2">15+</h3>
                 <p className="text-gray-600">Companies</p>
               </div>
 

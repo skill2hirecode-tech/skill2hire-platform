@@ -272,14 +272,34 @@ export default function CookiePage() {
               If you have questions about our use of cookies, please contact us:
             </p>
             <div className="text-gray-700 space-y-2">
-              <p><strong>Skill2Hire Technologies</strong></p>
-              <p>📧 Email: <a href="mailto:privacy@skill2hiretechnologies.com" className="text-primary hover:underline">privacy@skill2hiretechnologies.com</a></p>
-              <p>📧 General: <a href="mailto:skill2hirecode@gmail.com" className="text-primary hover:underline">skill2hirecode@gmail.com</a></p>
+              <p>
+                <strong>Skill2Hire Technologies</strong>
+              </p>
+              <p>
+                📧 Email:{" "}
+                <a
+                  href="mailto:privacy@skill2hiretechnologies.com"
+                  className="text-primary hover:underline"
+                >
+                  info@skill2hiretechnologies.com
+                </a>
+              </p>
+              <p>
+                📧 General:{" "}
+                <a
+                  href="mailto:skill2hirecode@gmail.com"
+                  className="text-primary hover:underline"
+                >
+                  hr@skill2hiretechnologies.com
+                </a>
+              </p>
               <p>📱 Phone: +91 82203 33917</p>
-              <p>📍 Address: #123, Koramangala, Bangalore, Karnataka - 560034, India</p>
+              <p>
+                📍 Address: 14th Main cross, 13/A, 6th Cross Rd, Sector 5, HSR
+                Layout, Bengaluru, Karnataka, 560102, India
+              </p>
             </div>
           </section>
-
         </div>
       </div>
     </div>

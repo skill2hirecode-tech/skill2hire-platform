@@ -68,14 +68,14 @@ export default function Footer() {
               <li className="flex items-start space-x-2 text-gray-300">
                 <MapPin size={18} className="mt-1 flex-shrink-0" />
                 <span className="text-sm">
-                  #123, Koramangala, Bangalore
-                  <br />
-                  Karnataka - 560034, India
+                  14th Main cross, 13/A, <br />
+                  6th Cross Rd, Sector 5, <br />
+                  HSR Layout, Bengaluru, Karnataka, 560102 <br />
                 </span>
               </li>
               <li className="flex items-center space-x-2 text-gray-300">
                 <Phone size={18} className="flex-shrink-0" />
-                <span className="text-sm">+91 7349783555 </span>
+                <span className="text-sm">+91 8220333917 </span>
               </li>
               <li className="flex items-center space-x-2 text-gray-300">
                 <Mail size={18} className="flex-shrink-0" />

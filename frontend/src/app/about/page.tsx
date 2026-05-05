@@ -118,6 +118,30 @@ export default function AboutPage() {
                     <span className="text-secondary mr-2">✓</span>
                     Career guidance and support
                   </li>
+                  <li className="flex items-start">
+                    <span className="text-secondary mr-2">✓</span>
+                    Real-world project experience
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-secondary mr-2">✓</span>
+                    Personalised mentorship
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-secondary mr-2">✓</span>
+                    Access to learning resources and materials
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-secondary mr-2">✓</span>
+                    Mock interviews with Industry experts
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-secondary mr-2">✓</span>
+                    Doubt-clearing sessions and peer learning
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-secondary mr-2">✓</span>
+                    Placement assistance with top companies
+                  </li>
                 </ul>
               </div>
 
@@ -133,19 +157,25 @@ export default function AboutPage() {
                 <ul className="space-y-2 text-gray-600">
                   <li className="flex items-start">
                     <span className="text-primary mr-2">✓</span>
-                    Pre-screened candidates
+                    Full-Time (Permanent Hiring) – End-to-end recruitment
+                    support for strategic and long-term roles.
                   </li>
                   <li className="flex items-start">
                     <span className="text-primary mr-2">✓</span>
-                    Skill-matched placements
+                    Contract-to-Contract (C2C) – Deployment of specialized
+                    consultants for payment platform implementation, migration,
+                    and upgrade projects.
                   </li>
                   <li className="flex items-start">
                     <span className="text-primary mr-2">✓</span>
-                    Fast hiring process
+                    Contract-to-Hire (C2H) – A flexible engagement model
+                    enabling performance evaluation before permanent onboarding.
                   </li>
                   <li className="flex items-start">
                     <span className="text-primary mr-2">✓</span>
-                    Quality assurance
+                    RPO (Recruitment Process Outsourcing) – Dedicated
+                    recruitment teams managing complete or partial hiring
+                    functions.
                   </li>
                 </ul>
               </div>
@@ -179,9 +209,12 @@ export default function AboutPage() {
                   <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
                     <span className="text-white text-2xl font-bold">2</span>
                   </div>
-                  <h3 className="text-xl font-bold text-navy mb-3">Career Guidance</h3>
+                  <h3 className="text-xl font-bold text-navy mb-3">
+                    Career Guidance
+                  </h3>
                   <p className="text-gray-600">
-                    Personalized support to help you achieve your professional goals
+                    Personalized support to help you achieve your professional
+                    goals
                   </p>
                 </div>
 
@@ -189,9 +222,12 @@ export default function AboutPage() {
                   <div className="w-16 h-16 bg-navy rounded-full flex items-center justify-center mx-auto mb-4">
                     <span className="text-white text-2xl font-bold">3</span>
                   </div>
-                  <h3 className="text-xl font-bold text-navy mb-3">Efficient Hiring</h3>
+                  <h3 className="text-xl font-bold text-navy mb-3">
+                    Efficient Hiring
+                  </h3>
                   <p className="text-gray-600">
-                    Streamlined recruitment process connecting talent with opportunity
+                    Streamlined recruitment process connecting talent with
+                    opportunity
                   </p>
                 </div>
               </div>
@@ -204,19 +240,27 @@ export default function AboutPage() {
           <div className="container-custom">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-secondary mb-2">500+</div>
+                <div className="text-4xl md:text-5xl font-bold text-secondary mb-2">
+                  200+
+                </div>
                 <div className="text-gray-300">Jobs Posted</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-secondary mb-2">50+</div>
+                <div className="text-4xl md:text-5xl font-bold text-secondary mb-2">
+                  15+
+                </div>
                 <div className="text-gray-300">Training Programs</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-secondary mb-2">1000+</div>
+                <div className="text-4xl md:text-5xl font-bold text-secondary mb-2">
+                  1000+
+                </div>
                 <div className="text-gray-300">Successful Placements</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-secondary mb-2">100+</div>
+                <div className="text-4xl md:text-5xl font-bold text-secondary mb-2">
+                  15+
+                </div>
                 <div className="text-gray-300">Partner Companies</div>
               </div>
             </div>
@@ -231,16 +275,23 @@ export default function AboutPage() {
                 Ready to Transform Your Career or Find Top Talent?
               </h2>
               <p className="text-xl text-gray-600 mb-8">
-                Join thousands of successful candidates and satisfied employers who trust Skill2Hire Technologies
+                Join thousands of successful candidates and satisfied employers
+                who trust Skill2Hire Technologies
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="/jobs" className="btn btn-primary px-8 py-4 text-lg">
                   Explore Jobs
                 </a>
-                <a href="/courses" className="btn btn-secondary px-8 py-4 text-lg">
+                <a
+                  href="/courses"
+                  className="btn btn-secondary px-8 py-4 text-lg"
+                >
                   Browse Courses
                 </a>
-                <a href="/contact" className="btn btn-outline px-8 py-4 text-lg">
+                <a
+                  href="/contact"
+                  className="btn btn-outline px-8 py-4 text-lg"
+                >
                   Contact Us
                 </a>
               </div>
