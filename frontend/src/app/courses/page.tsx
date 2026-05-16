@@ -316,8 +316,7 @@ export default function CoursesPage() {
                 Ready to Start Your Learning Journey?
               </h2>
               <p className="text-xl mb-8 text-white/90">
-                Join thousands of successful students who transformed their
-                careers with Skill2Hire
+                Join thousands of successful students who transformed their careers with <span className="font-semibold">Skill<span className="text-secondary">2</span>Hire</span>
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a

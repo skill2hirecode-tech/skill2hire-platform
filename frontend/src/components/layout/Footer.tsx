@@ -1,13 +1,6 @@
-import Link from "next/link";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Linkedin,
-  Twitter,
-  Facebook,
-  Instagram,
-} from "lucide-react";
+import Link from 'next/link';
+import Image from 'next/image';
+import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Instagram } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -18,13 +11,21 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold">S2H</span>
+            <div className="flex items-center space-x-3 mb-4">
+              <div className="w-14 h-14">
+                <Image 
+                  src="/images/s2h-logo.svg" 
+                  alt="Skill2Hire Technologies" 
+                  width={56} 
+                  height={56}
+                  className="object-contain"
+                />
               </div>
               <div>
-                <div className="font-bold text-lg">Skill2Hire</div>
-                <div className="text-xs text-secondary">Technologies</div>
+                <div className="font-bold text-lg">
+                  Skill<span className="text-secondary">2</span>Hire
+                </div>
+                <div className="text-xs text-secondary font-medium">Technologies</div>
               </div>
             </div>
             <p className="text-gray-300 text-sm mb-4">

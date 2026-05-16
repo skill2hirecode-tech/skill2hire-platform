@@ -18,7 +18,7 @@ export default function AboutPage() {
           <div className="container-custom">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                About Skill2Hire Technologies
+                About Skill<span className="text-secondary">2</span>Hire Technologies
               </h1>
               <p className="text-xl text-gray-200">
                 Bridging the gap between talented individuals and the right career opportunities
@@ -33,7 +33,7 @@ export default function AboutPage() {
             <div className="max-w-4xl mx-auto">
               <div className="prose prose-lg max-w-none">
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  Skill2Hire Technologies is a dynamic recruitment and training company dedicated to bridging the gap between talented individuals and the right career opportunities. We focus on empowering job seekers with industry-relevant skills while helping organizations find the best talent to drive their success.
+                  <span className="font-semibold">Skill<span className="text-secondary">2</span>Hire Technologies</span> is a dynamic recruitment and training company dedicated to bridging the gap between talented individuals and the right career opportunities. We focus on empowering job seekers with industry-relevant skills while helping organizations find the best talent to drive their success.
                 </p>
 
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -41,7 +41,7 @@ export default function AboutPage() {
                 </p>
 
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  At Skill2Hire Technologies, we offer comprehensive training programs designed to enhance technical and professional skills, making candidates job-ready in today's competitive market. Alongside this, our recruitment services help companies streamline their hiring process by providing qualified and well-trained candidates.
+                  At <span className="font-semibold">Skill<span className="text-secondary">2</span>Hire Technologies</span>, we offer comprehensive training programs designed to enhance technical and professional skills, making candidates job-ready in today's competitive market. Alongside this, our recruitment services help companies streamline their hiring process by providing qualified and well-trained candidates.
                 </p>
 
                 <p className="text-lg text-gray-700 leading-relaxed mb-8">
@@ -275,8 +275,7 @@ export default function AboutPage() {
                 Ready to Transform Your Career or Find Top Talent?
               </h2>
               <p className="text-xl text-gray-600 mb-8">
-                Join thousands of successful candidates and satisfied employers
-                who trust Skill2Hire Technologies
+                Join thousands of successful candidates and satisfied employers who trust <span className="font-semibold">Skill<span className="text-secondary">2</span>Hire Technologies</span>
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="/jobs" className="btn btn-primary px-8 py-4 text-lg">

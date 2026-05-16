@@ -46,7 +46,9 @@ export default function WhyChooseUs() {
     <section className="py-20 bg-white">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="section-title">Why Choose Skill2Hire?</h2>
+          <h2 className="section-title">
+            Why Choose Skill<span className="text-secondary">2</span>Hire?
+          </h2>
           <p className="section-subtitle">
             Your success is our mission. Here's what makes us different
           </p>

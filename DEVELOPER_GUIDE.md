@@ -31,7 +31,7 @@ This guide will help you get started with the Skill2Hire platform development. F
 ```
 - ESLint
 - Prettier
-- Tailwind CSS IntelliSense
+- Tailwind CSS IntelliSense  
 - Prisma
 - TypeScript and JavaScript Language Features
 - GitLens
