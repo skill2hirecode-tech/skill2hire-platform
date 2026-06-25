@@ -72,14 +72,14 @@ export default function Footer() {
                   Browse Jobs
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   href="/courses"
                   className="text-gray-300 hover:text-secondary transition-colors"
                 >
                   Our Courses
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link
                   href="/about"
@@ -125,7 +125,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center space-x-2 text-gray-300">
                 <Phone size={18} className="flex-shrink-0" />
-                <span className="text-sm">+91 8220333917 </span>
+                <span className="text-sm">+91 8792516505 </span>
               </li>
               <li className="flex items-center space-x-2 text-gray-300">
                 <Mail size={18} className="flex-shrink-0" />
