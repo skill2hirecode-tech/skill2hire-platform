@@ -118,10 +118,16 @@ export default function Footer() {
               <li className="flex items-start space-x-2 text-gray-300">
                 <MapPin size={18} className="mt-1 flex-shrink-0" />
                 <span className="text-sm">
-                  14th Main cross, 13/A, <br />
-                  6th Cross Rd, Sector 5, <br />
-                  HSR Layout, Bengaluru, Karnataka-560102, India <br />
-                </span>
+    14th Main Cross, 13/A, <br />
+    6th Cross Rd, Sector 5, <br />
+    HSR Layout, Bengaluru, Karnataka-560102, India
+  </span>
+
+  <span className="text-sm">
+    Plot 3, Hitech City Main Road, <br />
+    HUDA Techno Enclave, HITEC City, <br />
+    Hyderabad, Telangana-500081, India
+  </span>
               </li>
               <li className="flex items-center space-x-2 text-gray-300">
                 <Phone size={18} className="flex-shrink-0" />
